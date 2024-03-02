@@ -15,6 +15,7 @@ class StoriesStateController extends ChangeNotifier {
   );
   final NavigateDetailsUseCase _navigateDetailsUseCase;
   final LaunchUrlUseCase _launchUrlUseCase;
+
   StoriesViewType storiesViewType = StoriesViewType.list;
   StorySection storySection = StorySection.home;
 

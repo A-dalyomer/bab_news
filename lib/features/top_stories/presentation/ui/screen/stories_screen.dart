@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../core/widget/app_circle_indicator.dart';
-import '../../../../../main.dart';
-import '../../../domain/entities/story_entity.dart';
 import '../provider/stories_provider.dart';
 
 class StoriesScreen extends StatefulWidget {
@@ -18,18 +16,13 @@ class StoriesScreen extends StatefulWidget {
 }
 
 class _StoriesScreenState extends State<StoriesScreen> {
-  final AutoDisposeFutureProvider<List<StoryEntity>?> provider =
-      FutureProvider.autoDispose(
-    (ref) => getIt<StoriesProvider>().getStories(),
-  );
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const StoriesAppbar(),
       body: Consumer(
         builder: (context, ref, child) {
-          final providerListener = ref.watch(provider);
+          final providerListener = ref.watch(storiesDataProvider);
 
           if (providerListener.isLoading) {
             return const Center(
@@ -40,7 +33,7 @@ class _StoriesScreenState extends State<StoriesScreen> {
           switch (providerListener.value) {
             case null:
               return AppLoadingErrorWidget(
-                retry: () => ref.refresh(provider),
+                retry: () => ref.refresh(storiesDataProvider),
               );
             case []:
               return const AppEmptyDataWidget();

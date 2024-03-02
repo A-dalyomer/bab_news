@@ -1,4 +1,5 @@
 import 'package:bab_news/core/di/dependency_injector.dart';
+import 'package:bab_news/core/utils/enums.dart';
 import 'package:bab_news/features/network/data/constants/const_api_links.dart';
 import 'package:bab_news/features/network/data/datasources/network_data_source.dart';
 
@@ -19,7 +20,7 @@ void main() async {
       // act
       when(
         dataSource.getRequest(
-          apiPath: ConstantApiLinks.topStories,
+          apiPath: ConstantApiLinks.topStories(StorySection.home),
           extraHeaders: {"Accept": 'application/json'},
         ),
       ).thenAnswer((_) async => {
@@ -31,7 +32,7 @@ void main() async {
       // assert
       expect(
           await dataSource.getRequest(
-            apiPath: ConstantApiLinks.topStories,
+            apiPath: ConstantApiLinks.topStories(StorySection.home),
             extraHeaders: {"Accept": 'application/json'},
           ),
           isA<Map<String, dynamic>>());
@@ -41,7 +42,7 @@ void main() async {
       // act
       when(
         dataSource.getRequest(
-          apiPath: ConstantApiLinks.topStories,
+          apiPath: ConstantApiLinks.topStories(StorySection.home),
           extraHeaders: {"Accept": 'application/json'},
           queryParameters: "foo",
         ),
@@ -50,7 +51,7 @@ void main() async {
       // assert
       expect(
           await dataSource.getRequest(
-            apiPath: ConstantApiLinks.topStories,
+            apiPath: ConstantApiLinks.topStories(StorySection.home),
             extraHeaders: {"Accept": 'application/json'},
             queryParameters: "foo",
           ),
