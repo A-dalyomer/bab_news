@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../core/utils/enums.dart';
-import '../provider/stories_state_controller.dart';
+import '../provider/stories_section_notifier.dart';
 
 class StoriesFilterButton extends StatelessWidget {
   const StoriesFilterButton({super.key});
@@ -12,12 +12,12 @@ class StoriesFilterButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
-        final providerListener = ref.watch(storiesStateController);
+        final providerListener = ref.watch(storiesSectionNotifier);
 
         return PopupMenuButton<StorySection>(
-          initialValue: providerListener.storySection,
-          onSelected: (StorySection item) =>
-              providerListener.changeStorySection(item),
+          initialValue: providerListener,
+          onSelected: (StorySection newSection) =>
+              ref.read(storiesSectionNotifier.notifier).updateState(newSection),
           tooltip: "Select story section to show relevant data",
           itemBuilder: (BuildContext context) => <PopupMenuEntry<StorySection>>[
             for (var element in StorySection.values)

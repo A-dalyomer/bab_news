@@ -17,7 +17,6 @@ class StoriesStateController extends ChangeNotifier {
   final LaunchUrlUseCase _launchUrlUseCase;
 
   StoriesViewType storiesViewType = StoriesViewType.list;
-  StorySection storySection = StorySection.home;
 
   String searchWord = '';
 
@@ -28,11 +27,6 @@ class StoriesStateController extends ChangeNotifier {
 
   void setSearchWord(String newWord) {
     searchWord = newWord;
-    notifyListeners();
-  }
-
-  void changeStorySection(StorySection newSection) {
-    storySection = newSection;
     notifyListeners();
   }
 

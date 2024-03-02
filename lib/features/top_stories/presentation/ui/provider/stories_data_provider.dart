@@ -1,5 +1,5 @@
 import 'package:bab_news/core/utils/enums.dart';
-import 'package:bab_news/features/top_stories/presentation/ui/provider/stories_state_controller.dart';
+import 'package:bab_news/features/top_stories/presentation/ui/provider/stories_section_notifier.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -24,7 +24,7 @@ class StoriesDataProvider {
 final AutoDisposeFutureProvider<List<StoryEntity>?> storiesDataProvider =
     FutureProvider.autoDispose(
   (ref) {
-    final storiesState = ref.watch(storiesStateController);
-    return getIt<StoriesDataProvider>().getStories(storiesState.storySection);
+    final storiesState = ref.watch(storiesSectionNotifier);
+    return getIt<StoriesDataProvider>().getStories(storiesState);
   },
 );
