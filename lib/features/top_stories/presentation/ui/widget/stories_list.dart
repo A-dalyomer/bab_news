@@ -16,31 +16,37 @@ class StoriesList extends StatelessWidget {
       builder: (context, ref, child) {
         final providerListener = ref.watch(storiesStateController);
 
-        return GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount:
-                providerListener.storiesViewType == StoriesViewType.grid
-                    ? 2
-                    : 1,
-            mainAxisExtent:
-                providerListener.storiesViewType == StoriesViewType.grid
-                    ? 500
-                    : 200,
-          ),
-          itemCount: storiesList.length,
-          itemBuilder: (context, index) {
-            final StoryEntity story = storiesList[index];
-            return Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: StoryItem(
-                story: story,
-                onTap: () => providerListener.navigateStoryDetails(
-                  context,
-                  story,
+        return AnimatedSwitcher(
+          duration: const Duration(milliseconds: 200),
+          child: GridView.builder(
+            key: ValueKey<int>(
+              providerListener.storiesViewType == StoriesViewType.grid ? 2 : 1,
+            ),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount:
+                  providerListener.storiesViewType == StoriesViewType.grid
+                      ? 2
+                      : 1,
+              mainAxisExtent:
+                  providerListener.storiesViewType == StoriesViewType.grid
+                      ? 500
+                      : 200,
+            ),
+            itemCount: storiesList.length,
+            itemBuilder: (context, index) {
+              final StoryEntity story = storiesList[index];
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: StoryItem(
+                  story: story,
+                  onTap: () => providerListener.navigateStoryDetails(
+                    context,
+                    story,
+                  ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         );
       },
     );
