@@ -38,7 +38,10 @@ class _StoriesScreenState extends State<StoriesScreen> {
             case []:
               return const AppEmptyDataWidget();
             default:
-              return StoriesList(storiesList: providerListener.value!);
+              return RefreshIndicator(
+                onRefresh: () async => ref.refresh(storiesDataProvider),
+                child: StoriesList(storiesList: providerListener.value!),
+              );
           }
         },
       ),
