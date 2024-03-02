@@ -21,7 +21,6 @@ class StoryDetailsScreen extends StatelessWidget {
             StoriesCarousel(
               height: MediaQuery.of(context).size.height * 0.4,
               images: story.images,
-              url: story.url,
             ),
             Text(
               story.title,
@@ -42,18 +41,19 @@ class StoryDetailsScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: AuthorName(name: story.author),
             ),
-            Consumer(
-              builder: (context, ref, child) {
-                final providerListener = ref.watch(storiesStateController);
+            if (story.url.toString().isNotEmpty)
+              Consumer(
+                builder: (context, ref, child) {
+                  final providerListener = ref.watch(storiesStateController);
 
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: ReadMoreButton(
-                    onTap: () => providerListener.launchStoryUrl(story.url),
-                  ),
-                );
-              },
-            ),
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: ReadMoreButton(
+                      onTap: () => providerListener.launchStoryUrl(story.url),
+                    ),
+                  );
+                },
+              ),
           ],
         ),
       ),

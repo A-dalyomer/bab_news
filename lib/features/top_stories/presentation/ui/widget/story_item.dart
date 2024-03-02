@@ -35,7 +35,6 @@ class StoryItem extends StatelessWidget {
                 StoriesCarousel(
                   height: constraints.maxHeight.clamp(0, 250),
                   images: story.images,
-                  url: story.url,
                 ),
                 Expanded(
                   child: Padding(

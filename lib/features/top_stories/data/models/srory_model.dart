@@ -14,11 +14,14 @@ class StoryModel extends StoryEntity {
   factory StoryModel.fromJson(Map<String, dynamic> json) {
     return StoryModel(
       section: json['section'],
-      images:
-          (json['multimedia'] as List).map((e) => e['url'].toString()).toList(),
+      images: ((json['multimedia'] ?? []) as List)
+          .map((e) => e['url'].toString())
+          .toList(),
       title: json['title'],
       abstractDescription: json['abstract'],
-      url: json['url'],
+
+      /// some cases having the url value "null" value or empty
+      url: json['url'].toString() == "null" ? '' : json['url'],
       author: json['byline'],
       publishedDate: DateTime.parse(
         json['published_date'],

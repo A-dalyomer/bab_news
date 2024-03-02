@@ -8,11 +8,9 @@ class StoriesCarousel extends StatelessWidget {
     super.key,
     required this.height,
     required this.images,
-    required this.url,
   });
   final double height;
   final List<String> images;
-  final String url;
 
   @override
   Widget build(BuildContext context) {

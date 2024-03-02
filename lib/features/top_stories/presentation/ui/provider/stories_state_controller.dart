@@ -15,13 +15,14 @@ class StoriesStateController extends ChangeNotifier {
   final NavigateDetailsUseCase _navigateDetailsUseCase;
   final LaunchUrlUseCase _launchUrlUseCase;
 
-  void navigateStoryDetails(BuildContext context, StoryEntity story) =>
-      _navigateDetailsUseCase(
-        NavigatorData(
-          context: context,
-          routeTarget: StoryDetailsScreen(story: story),
-        ),
-      );
+  void navigateStoryDetails(BuildContext context, StoryEntity story) {
+    if (story.title.isNotEmpty && story.abstractDescription.isNotEmpty) {
+      _navigateDetailsUseCase(NavigatorData(
+        context: context,
+        routeTarget: StoryDetailsScreen(story: story),
+      ));
+    }
+  }
 
   void launchStoryUrl(String url) => _launchUrlUseCase(url);
 }
