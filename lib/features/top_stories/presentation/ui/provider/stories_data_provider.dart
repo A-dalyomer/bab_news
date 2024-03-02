@@ -7,8 +7,8 @@ import '../../../../../main.dart';
 import '../../../domain/entities/story_entity.dart';
 import '../../../domain/use_cases/get_stories_use_case.dart';
 
-class StoriesProvider {
-  StoriesProvider(this._getStoriesUseCase);
+class StoriesDataProvider {
+  StoriesDataProvider(this._getStoriesUseCase);
   final GetStoriesUseCase _getStoriesUseCase;
 
   Future<List<StoryEntity>?> getStories(StorySection section) async {
@@ -25,6 +25,6 @@ final AutoDisposeFutureProvider<List<StoryEntity>?> storiesDataProvider =
     FutureProvider.autoDispose(
   (ref) {
     final storiesState = ref.watch(storiesStateController);
-    return getIt<StoriesProvider>().getStories(storiesState.storySection);
+    return getIt<StoriesDataProvider>().getStories(storiesState.storySection);
   },
 );
