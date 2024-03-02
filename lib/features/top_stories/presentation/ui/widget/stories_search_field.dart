@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../provider/stories_state_controller.dart';
+import '../provider/stories_search_provider.dart';
 
 class StoriesSearchField extends StatelessWidget {
   const StoriesSearchField({super.key});
@@ -10,10 +10,9 @@ class StoriesSearchField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
-        final providerListener = ref.watch(storiesStateController);
-
         return TextField(
-          onChanged: (newWord) => providerListener.setSearchWord(newWord),
+          onChanged: (newWord) =>
+              ref.read(storiesSearchNotifier.notifier).updateState(newWord),
           keyboardType: TextInputType.text,
           decoration: InputDecoration(
             prefixIcon: const Icon(Icons.search, size: 20),

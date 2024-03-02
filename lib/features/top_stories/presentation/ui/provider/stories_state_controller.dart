@@ -1,5 +1,4 @@
 import 'package:bab_news/core/dto/navigator_data.dart';
-import 'package:bab_news/core/utils/enums.dart';
 import 'package:bab_news/features/top_stories/domain/entities/story_entity.dart';
 import 'package:bab_news/features/top_stories/domain/use_cases/launch_url_use_case.dart';
 import 'package:bab_news/features/top_stories/domain/use_cases/navigate_details_use_case.dart';
@@ -15,20 +14,6 @@ class StoriesStateController extends ChangeNotifier {
   );
   final NavigateDetailsUseCase _navigateDetailsUseCase;
   final LaunchUrlUseCase _launchUrlUseCase;
-
-  StoriesViewType storiesViewType = StoriesViewType.list;
-
-  String searchWord = '';
-
-  void changeViewType(StoriesViewType newType) {
-    storiesViewType = newType;
-    notifyListeners();
-  }
-
-  void setSearchWord(String newWord) {
-    searchWord = newWord;
-    notifyListeners();
-  }
 
   void navigateStoryDetails(BuildContext context, StoryEntity story) =>
       _navigateDetailsUseCase(

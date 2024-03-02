@@ -2,7 +2,7 @@ import 'package:bab_news/core/utils/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../provider/stories_state_controller.dart';
+import '../provider/stories_list_type_provider.dart';
 
 class StoryViewTypeButton extends StatelessWidget {
   const StoryViewTypeButton({super.key});
@@ -11,22 +11,20 @@ class StoryViewTypeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
-        final providerListener = ref.watch(storiesStateController);
-
         return Row(
           children: [
             TypeButton(
               icon: Icons.list,
-              onTap: () => providerListener.changeViewType(
-                StoriesViewType.list,
-              ),
+              onTap: () => ref
+                  .read(storiesListTypeNotifier.notifier)
+                  .updateState(StoriesViewType.list),
             ),
             const SizedBox(width: 10),
             TypeButton(
               icon: Icons.grid_view_rounded,
-              onTap: () => providerListener.changeViewType(
-                StoriesViewType.grid,
-              ),
+              onTap: () => ref
+                  .read(storiesListTypeNotifier.notifier)
+                  .updateState(StoriesViewType.grid),
             ),
           ],
         );
