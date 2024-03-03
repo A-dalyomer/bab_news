@@ -1,3 +1,4 @@
+/// A class to be extended by the API data sources and use same functionality
 abstract class GeneralApiDataSource {
   Future<Map<String, dynamic>?> getRequest({
     required String apiPath,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Button that changes color state when set by [isSelected] parameter
 class TypeButton extends StatelessWidget {
   const TypeButton({
     required this.onTap,

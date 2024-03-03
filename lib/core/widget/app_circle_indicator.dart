@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// The APP's default loading indicator widget
 class AppCircleIndicator extends StatefulWidget {
   const AppCircleIndicator({super.key});
 

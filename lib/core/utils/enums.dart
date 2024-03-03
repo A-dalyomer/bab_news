@@ -1,5 +1,7 @@
+/// State holder enum for the current active stories view mode
 enum StoriesViewType { list, grid }
 
+/// Contains all the available sections in the API provider
 enum StorySection {
   arts("arts"),
   automobiles("automobiles"),

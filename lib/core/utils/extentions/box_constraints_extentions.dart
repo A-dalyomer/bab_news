@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+/// Useful extensions for getting sizes depending on available width or height
+/// whether its in portrait or landscape mode
 extension SmallestWidth on BoxConstraints {
   double orientedWidth() {
     if (maxWidth < maxHeight) {

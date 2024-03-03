@@ -1,6 +1,7 @@
 import 'package:bab_news/core/utils/extentions/box_constraints_extentions.dart';
 import 'package:flutter/material.dart';
 
+/// Used in cases to present errors
 class AppLoadingErrorWidget extends StatelessWidget {
   const AppLoadingErrorWidget({
     required this.retry,

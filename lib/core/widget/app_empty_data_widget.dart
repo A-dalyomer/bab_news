@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Used in cases when no data to be viewed
 class AppEmptyDataWidget extends StatelessWidget {
   const AppEmptyDataWidget({
     this.message = "No stories available",
