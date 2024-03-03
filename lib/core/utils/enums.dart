@@ -3,7 +3,7 @@ enum StoriesViewType { list, grid }
 enum StorySection {
   arts("arts"),
   automobiles("automobiles"),
-  booksReview("books/review"),
+  books("books"),
   business("business"),
   fashion("fashion"),
   food("food"),
