@@ -27,4 +27,15 @@ class StoryEntity extends Equatable {
         publishedDate,
         author,
       ];
+
+  Map<String, dynamic> toJson() {
+    final data = <String, dynamic>{};
+    data['images'] = images;
+    data['title'] = title;
+    data['abstractDescription'] = abstractDescription;
+    data['url'] = url;
+    data['publishedDate'] = publishedDate;
+    data['author'] = author;
+    return data;
+  }
 }
