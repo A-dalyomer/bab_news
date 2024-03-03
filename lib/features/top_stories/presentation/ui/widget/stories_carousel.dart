@@ -8,36 +8,39 @@ class StoriesCarousel extends StatelessWidget {
     super.key,
     required this.height,
     required this.images,
+    this.contentFit = BoxFit.cover,
+    this.autoPlay = false,
+    this.viewportFraction = 1,
   });
   final double height;
   final List<String> images;
+  final BoxFit contentFit;
+  final bool autoPlay;
+  final double viewportFraction;
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(12),
-        child: CarouselSlider(
-          items: [
-            for (int i = 0; i < images.length; i++)
-              PageStorage(
-                bucket: PageStorageBucket(),
-                child: Hero(
-                  tag: images[i] + i.toString(),
-                  child: AppCachedImage(
-                    imageUrl: images[i],
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                  ),
+      child: CarouselSlider(
+        items: [
+          for (int i = 0; i < images.length; i++)
+            Hero(
+              tag: images[i] + i.toString(),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: AppCachedImage(
+                  imageUrl: images[i],
+                  fit: contentFit,
+                  width: double.infinity,
                 ),
               ),
-          ],
-          options: CarouselOptions(
-            autoPlay: true,
-            enlargeCenterPage: true,
-            viewportFraction: 1,
-            height: height,
-          ),
+            ),
+        ],
+        options: CarouselOptions(
+          autoPlay: autoPlay,
+          enlargeCenterPage: true,
+          viewportFraction: viewportFraction,
+          height: height,
         ),
       ),
     );

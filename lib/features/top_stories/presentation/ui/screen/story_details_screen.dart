@@ -19,8 +19,11 @@ class StoryDetailsScreen extends StatelessWidget {
         child: Column(
           children: [
             StoriesCarousel(
-              height: 200,
+              height: MediaQuery.of(context).size.height * 0.4,
               images: story.images,
+              contentFit: BoxFit.fitWidth,
+              autoPlay: true,
+              viewportFraction: 0.7,
             ),
             Text(
               story.title,

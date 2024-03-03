@@ -43,7 +43,7 @@ class StoriesList extends StatelessWidget {
                 ),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: viewType == StoriesViewType.grid ? 2 : 1,
-                  mainAxisExtent: viewType == StoriesViewType.grid ? 500 : 200,
+                  mainAxisExtent: viewType == StoriesViewType.grid ? 400 : 200,
                 ),
                 itemCount: filteredStories.length,
                 itemBuilder: (context, index) {

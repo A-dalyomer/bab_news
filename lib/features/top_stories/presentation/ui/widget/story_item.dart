@@ -15,6 +15,7 @@ class StoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
+      bool listView = constraints.maxWidth > context.constWidth(.5);
       return Container(
         constraints: BoxConstraints(maxHeight: constraints.maxHeight),
         decoration: BoxDecoration(
@@ -27,60 +28,73 @@ class StoryItem extends StatelessWidget {
           child: Material(
             color: Colors.transparent,
             borderRadius: BorderRadius.circular(12),
-            child: Flex(
-              direction: constraints.maxWidth > context.constWidth(.5)
-                  ? Axis.horizontal
-                  : Axis.vertical,
-              children: [
-                StoriesCarousel(
-                  height: constraints.maxHeight.clamp(0, 250),
-                  images: story.images,
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          story.title,
-                          style:
-                              Theme.of(context).textTheme.titleLarge?.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        const SizedBox(height: 14),
-                        if (story.abstractDescription.isNotEmpty)
-                          Expanded(
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Theme.of(context)
-                                    .primaryColor
-                                    .withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Hero(
-                                  tag: story.abstractDescription,
-                                  child: Text(
-                                    story.abstractDescription,
-                                    style:
-                                        Theme.of(context).textTheme.titleSmall,
-                                    overflow: TextOverflow.fade,
+            child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Flex(
+                direction: listView ? Axis.horizontal : Axis.vertical,
+                children: [
+                  SizedBox(
+                    width: constraints.constrainWidth() * (listView ? .3 : 1),
+                    child: StoriesCarousel(
+                      height:
+                          constraints.maxHeight.clamp(0, listView ? 200 : 180),
+                      images: story.images,
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.only(start: 8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            story.title,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge
+                                ?.copyWith(fontWeight: FontWeight.bold),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          const SizedBox(height: 5),
+                          if (story.abstractDescription.isNotEmpty)
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Theme.of(context)
+                                      .primaryColor
+                                      .withOpacity(0.2),
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Hero(
+                                    tag: story.abstractDescription,
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            story.abstractDescription,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .titleSmall,
+                                            overflow: TextOverflow.fade,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
