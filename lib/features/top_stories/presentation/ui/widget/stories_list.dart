@@ -3,9 +3,9 @@ import 'package:bab_news/features/top_stories/domain/entities/story_entity.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../provider/stories_list_type_notifier.dart';
-import '../provider/stories_search_notifier.dart';
-import '../provider/stories_state_controller.dart';
+import '../../provider/stories_list_type_notifier.dart';
+import '../../provider/stories_search_notifier.dart';
+import '../../provider/stories_state_controller.dart';
 import 'story_item.dart';
 
 class StoriesList extends StatelessWidget {

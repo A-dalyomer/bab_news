@@ -5,7 +5,7 @@ import 'package:bab_news/features/top_stories/presentation/ui/widget/stories_car
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../provider/stories_state_controller.dart';
+import '../../provider/stories_state_controller.dart';
 
 class StoryDetailsScreen extends StatelessWidget {
   const StoryDetailsScreen({super.key, required this.story});

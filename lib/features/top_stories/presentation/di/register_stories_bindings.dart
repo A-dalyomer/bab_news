@@ -6,7 +6,7 @@ import '../../domain/repositories/stories_repository.dart';
 import '../../domain/use_cases/get_stories_use_case.dart';
 import '../../domain/use_cases/launch_url_use_case.dart';
 import '../../domain/use_cases/navigate_details_use_case.dart';
-import '../ui/provider/stories_data_provider.dart';
+import '../provider/stories_data_provider.dart';
 
 Future<void> registererStoriesBindings(GetIt getIt) async {
   /// data provider bindings

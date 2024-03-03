@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../core/utils/enums.dart';
-import '../provider/stories_section_notifier.dart';
+import '../../provider/stories_section_notifier.dart';
 
 class StoriesFilterButton extends StatelessWidget {
   const StoriesFilterButton({super.key});

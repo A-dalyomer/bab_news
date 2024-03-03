@@ -1,11 +1,11 @@
 import 'package:bab_news/core/utils/enums.dart';
-import 'package:bab_news/features/top_stories/presentation/ui/provider/stories_section_notifier.dart';
+import 'package:bab_news/features/top_stories/presentation/provider/stories_section_notifier.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../../main.dart';
-import '../../../domain/entities/story_entity.dart';
-import '../../../domain/use_cases/get_stories_use_case.dart';
+import '../../domain/entities/story_entity.dart';
+import '../../domain/use_cases/get_stories_use_case.dart';
 
 class StoriesDataProvider {
   StoriesDataProvider(this._getStoriesUseCase);

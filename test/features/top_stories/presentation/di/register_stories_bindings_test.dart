@@ -1,7 +1,7 @@
 import 'package:bab_news/core/di/dependency_injector.dart';
 import 'package:bab_news/features/top_stories/domain/use_cases/launch_url_use_case.dart';
 import 'package:bab_news/features/top_stories/domain/use_cases/navigate_details_use_case.dart';
-import 'package:bab_news/features/top_stories/presentation/ui/provider/stories_data_provider.dart';
+import 'package:bab_news/features/top_stories/presentation/provider/stories_data_provider.dart';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
