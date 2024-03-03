@@ -23,12 +23,14 @@ class StoryViewTypeButton extends StatelessWidget {
               icon: Icons.list,
               isSelected: selectedType == StoriesViewType.list,
               onTap: () => _updateState(ref, StoriesViewType.list),
+              key: const ValueKey(StoriesViewType.list),
             ),
             const SizedBox(width: 10),
             TypeButton(
               icon: Icons.grid_view_rounded,
               isSelected: selectedType == StoriesViewType.grid,
               onTap: () => _updateState(ref, StoriesViewType.grid),
+              key: const ValueKey(StoriesViewType.grid),
             ),
           ],
         );
