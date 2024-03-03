@@ -17,28 +17,26 @@ class StoriesCarousel extends StatelessWidget {
     return Material(
       child: ClipRRect(
         borderRadius: BorderRadius.circular(12),
-        child: SizedBox(
-          height: height,
-          child: CarouselSlider(
-            items: [
-              for (int i = 0; i < images.length; i++)
-                PageStorage(
-                  bucket: PageStorageBucket(),
-                  child: Hero(
-                    tag: images[i] + i.toString(),
-                    child: AppCachedImage(
-                      imageUrl: images[i],
-                      fit: BoxFit.fitHeight,
-                    ),
+        child: CarouselSlider(
+          items: [
+            for (int i = 0; i < images.length; i++)
+              PageStorage(
+                bucket: PageStorageBucket(),
+                child: Hero(
+                  tag: images[i] + i.toString(),
+                  child: AppCachedImage(
+                    imageUrl: images[i],
+                    fit: BoxFit.cover,
+                    width: double.infinity,
                   ),
                 ),
-            ],
-            options: CarouselOptions(
-              autoPlay: true,
-              aspectRatio: 1,
-              enlargeCenterPage: true,
-              viewportFraction: 1,
-            ),
+              ),
+          ],
+          options: CarouselOptions(
+            autoPlay: true,
+            enlargeCenterPage: true,
+            viewportFraction: 1,
+            height: height,
           ),
         ),
       ),
