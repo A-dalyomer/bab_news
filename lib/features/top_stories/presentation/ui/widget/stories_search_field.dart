@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../provider/stories_search_provider.dart';
+import '../provider/stories_search_notifier.dart';
 
 class StoriesSearchField extends StatelessWidget {
   const StoriesSearchField({super.key});
