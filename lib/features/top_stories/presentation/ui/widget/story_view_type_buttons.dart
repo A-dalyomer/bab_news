@@ -8,46 +8,31 @@ import '../provider/stories_list_type_notifier.dart';
 class StoryViewTypeButton extends StatelessWidget {
   const StoryViewTypeButton({super.key});
 
+  void _updateState(WidgetRef ref, StoriesViewType newType) {
+    ref.read(storiesListTypeNotifier.notifier).updateState(newType);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
+        final StoriesViewType selectedType = ref.read(storiesListTypeNotifier);
         return Row(
           children: [
             TypeButton(
               icon: Icons.list,
-              onTap: () => ref
-                  .read(storiesListTypeNotifier.notifier)
-                  .updateState(StoriesViewType.list),
+              isSelected: selectedType == StoriesViewType.list,
+              onTap: () => _updateState(ref, StoriesViewType.list),
             ),
             const SizedBox(width: 10),
             TypeButton(
               icon: Icons.grid_view_rounded,
-              onTap: () => ref
-                  .read(storiesListTypeNotifier.notifier)
-                  .updateState(StoriesViewType.grid),
+              isSelected: selectedType == StoriesViewType.grid,
+              onTap: () => _updateState(ref, StoriesViewType.grid),
             ),
           ],
         );
       },
-    );
-  }
-}
-
-class TypeButton extends StatelessWidget {
-  const TypeButton({required this.onTap, required this.icon, super.key});
-  final VoidCallback onTap;
-  final IconData icon;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(100),
-      child: Padding(
-        padding: const EdgeInsets.all(2.0),
-        child: Icon(icon),
-      ),
     );
   }
 }
