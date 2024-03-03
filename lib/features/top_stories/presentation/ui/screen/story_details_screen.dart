@@ -44,7 +44,7 @@ class StoryDetailsScreen extends StatelessWidget {
             if (story.url.toString().isNotEmpty)
               Consumer(
                 builder: (context, ref, child) {
-                  final providerListener = ref.watch(storiesStateController);
+                  final providerListener = ref.read(storiesStateController);
 
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
