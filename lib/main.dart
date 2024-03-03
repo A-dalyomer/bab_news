@@ -8,7 +8,7 @@ import 'features/top_stories/presentation/ui/screen/stories_screen.dart';
 final GetIt getIt = GetIt.instance;
 
 void main() async {
-  await DependencyInjector.init();
+  await DependencyInjector.init(getIt);
   runApp(const ProviderScope(child: NewsApp()));
 }
 
