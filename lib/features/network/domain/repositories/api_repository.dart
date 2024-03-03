@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 
+/// API requests repository that holds all the used API requests
 abstract class ApiRequestsRepository {
   Future<Map<String, dynamic>?> postRequest({
     required String apiPath,

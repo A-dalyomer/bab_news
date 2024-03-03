@@ -3,6 +3,8 @@ import 'package:dio/dio.dart';
 
 import '../../../../core/datasource/general_datasource.dart';
 
+/// The Central API caller for all API calls in the project
+/// the [onException] parameters is used to handle known api errors
 class NetworkDataSource extends GeneralApiDataSource {
   final Dio _dio = Dio();
 

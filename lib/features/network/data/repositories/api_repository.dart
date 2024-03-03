@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 
 import '../../domain/repositories/api_repository.dart';
 
+/// API requests implementation for the abstract [ApiRequestsRepository]
 class ApiRequestsRepositoryImp extends ApiRequestsRepository {
   ApiRequestsRepositoryImp(this.dataSource);
   final NetworkDataSource dataSource;

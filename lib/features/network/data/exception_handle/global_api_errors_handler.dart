@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 
+///
 void handleGlobalApiErrors(int? statusCode) {
   if (kDebugMode) {
     print("API error with status code $statusCode");
