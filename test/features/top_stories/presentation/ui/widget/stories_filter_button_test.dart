@@ -4,7 +4,7 @@ import 'package:bab_news/features/top_stories/domain/entities/story_entity.dart'
 import 'package:bab_news/features/top_stories/presentation/provider/stories_data_provider.dart';
 import 'package:bab_news/features/top_stories/presentation/provider/stories_section_notifier.dart';
 import 'package:bab_news/features/top_stories/presentation/ui/screen/stories_screen.dart';
-import 'package:bab_news/features/top_stories/presentation/ui/widget/stories_filter_buttton.dart';
+import 'package:bab_news/features/top_stories/presentation/ui/widget/stories_filter_button.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
