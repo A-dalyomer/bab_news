@@ -16,7 +16,7 @@ class StoryViewTypeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
-        final StoriesViewType selectedType = ref.read(storiesListTypeNotifier);
+        final StoriesViewType selectedType = ref.watch(storiesListTypeNotifier);
         return Row(
           children: [
             TypeButton(
