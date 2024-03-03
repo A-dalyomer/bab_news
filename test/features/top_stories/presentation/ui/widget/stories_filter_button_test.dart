@@ -12,7 +12,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 
 void main() async {
-  // Arrange
+  ///Arrange
   final GetIt getIt = GetIt.instance;
   await DependencyInjector.init(getIt);
   StorySection currentStateSection = StorySection.home;
@@ -21,19 +21,19 @@ void main() async {
     WidgetTester tester,
     List<StoryEntity>? testState,
   ) async {
-    // Arrange
+    ///Arrange
     final providerOverrides = [
       storiesDataProvider.overrideWith((ref) {
         final section = ref.watch(storiesSectionNotifier);
         if (kDebugMode) {
-          print("loading section: $section");
+          print("mocking section: $section");
         }
         currentStateSection = section;
         return testState;
       })
     ];
 
-    // Act
+    ///Act
     await tester.pumpWidget(
       MaterialApp(
         home: ProviderScope(
@@ -46,23 +46,24 @@ void main() async {
 
   group("Test stories screen filter button", () {
     testWidgets('change selected filter test', (tester) async {
-      // Arrange
+      ///Arrange
       const StorySection testSection = StorySection.arts;
       final filterButton = find.byType(StoriesFilterButton);
-      // Act
+
+      ///Act
       await buildWidgetWithProvider(tester, null);
 
-      // Assert
+      ///Assert
       expect(filterButton, findsOneWidget);
 
-      // Act
+      ///Act
       await tester.tap(filterButton);
       await tester.pumpAndSettle();
 
       await tester.tap(find.text(testSection.name));
       await tester.pumpAndSettle();
 
-      // Assert
+      ///Assert
 
       expect(currentStateSection, equals(testSection));
     });

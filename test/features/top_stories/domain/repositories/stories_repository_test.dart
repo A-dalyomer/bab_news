@@ -13,7 +13,7 @@ import 'stories_repository_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<StoriesRepository>()])
 void main() async {
-  // arrange
+  ///arrange
   final GetIt getIt = GetIt.instance;
   await DependencyInjector.init(getIt);
   final apiDataSource = MockNetworkDataSource();
@@ -21,7 +21,7 @@ void main() async {
 
   group('test getStories from repository', () {
     test('returns List<StoryEntity> on correct response', () async {
-      // act
+      ///act
       when(
         apiDataSource.getRequest(
           apiPath: ConstantApiLinks.topStories(StorySection.home),
@@ -41,7 +41,7 @@ void main() async {
             ],
           });
 
-      // assert
+      ///assert
       expect(
         await storiesRepository.getStories(StorySection.home),
         isA<List<StoryEntity>?>(),
@@ -49,7 +49,7 @@ void main() async {
     });
 
     test('returns null on malformed response', () async {
-      // act
+      ///act
       when(
         apiDataSource.getRequest(
           apiPath: ConstantApiLinks.topStories(StorySection.home),
@@ -57,7 +57,7 @@ void main() async {
         ),
       ).thenAnswer((_) async => {"results": ""});
 
-      // assert
+      ///assert
       expect(
         await storiesRepository.getStories(StorySection.home),
         isA<void>(),

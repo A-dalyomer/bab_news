@@ -7,13 +7,13 @@ void main() async {
   group('test network dependency injector', () {
     test('test that [ApiRequestsRepositoryImp] singleton is registered',
         () async {
-      // Arrange
+      ///Arrange
       final GetIt getIt = GetIt.instance;
 
-      // Act
+      ///Act
       registererNetworkBindings(getIt);
 
-      // assert
+      ///assert
       expect(
         getIt<ApiRequestsRepository>(),
         isA<ApiRequestsRepository>(),

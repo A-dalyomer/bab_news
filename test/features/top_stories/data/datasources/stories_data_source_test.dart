@@ -11,13 +11,13 @@ import 'stories_data_source_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<StoriesDataSource>()])
 void main() async {
-  // arrange
+  ///arrange
   final apiDataSource = MockNetworkDataSource();
   final storiesDataSource = MockStoriesDataSource();
 
   group('test getStories', () {
     test('returns List<StoryEntity> on correct response', () async {
-      // act
+      ///act
       when(
         apiDataSource.getRequest(
           apiPath: ConstantApiLinks.topStories(StorySection.home),
@@ -37,14 +37,14 @@ void main() async {
             ],
           });
 
-      // assert
+      ///assert
       expect(
         await storiesDataSource.getStories(StorySection.home),
         isA<List<StoryEntity>?>(),
       );
     });
     test('returns null on malformed response', () async {
-      // act
+      ///act
       when(
         apiDataSource.getRequest(
           apiPath: ConstantApiLinks.topStories(StorySection.home),
@@ -52,7 +52,7 @@ void main() async {
         ),
       ).thenAnswer((_) async => {"results": ""});
 
-      // assert
+      ///assert
       expect(
         await storiesDataSource.getStories(StorySection.home),
         isA<void>(),

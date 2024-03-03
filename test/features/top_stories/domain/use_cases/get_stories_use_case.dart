@@ -12,13 +12,13 @@ import 'get_stories_use_case.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<GetStoriesUseCase>()])
 void main() async {
-  // arrange
+  ///arrange
   final apiDataSource = MockNetworkDataSource();
   final storiesUseCase = MockGetStoriesUseCase();
 
   group('test GetStoriesUseCase', () {
     test('returns List<StoryEntity> on correct response', () async {
-      // act
+      ///act
       when(
         apiDataSource.getRequest(
           apiPath: ConstantApiLinks.topStories(StorySection.home),
@@ -38,7 +38,8 @@ void main() async {
             ],
           });
       storiesUseCase.setStorySection(StorySection.home);
-      // assert
+
+      ///assert
       expect(
         await storiesUseCase(MockStoriesRepository()),
         isA<List<StoryEntity>?>(),

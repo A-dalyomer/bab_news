@@ -7,13 +7,13 @@ void main() async {
   /// test [handleGlobalApiErrors]
   group('test global Api errors handler', () {
     test('prints the correct error on a handled status code', () async {
-      // Arrange
+      ///Arrange
       int statusCode = 404;
 
-      // Act
+      ///Act
       handler() => handleGlobalApiErrors(statusCode);
 
-      // assert
+      ///assert
       expect(
         handler,
         prints("API error with status code $statusCode\n"
@@ -22,13 +22,13 @@ void main() async {
     });
 
     test('prints the correct error on non handled status code', () async {
-      // Arrange
+      ///Arrange
       int statusCode = 500;
 
-      // Act
+      ///Act
       handler() => handleGlobalApiErrors(statusCode);
 
-      // assert
+      ///assert
       expect(
         handler,
         prints("API error with status code $statusCode\n"

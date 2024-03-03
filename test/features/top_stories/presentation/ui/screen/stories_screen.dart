@@ -11,7 +11,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 
 void main() async {
-  // Arrange
+  ///Arrange
   final GetIt getIt = GetIt.instance;
   await DependencyInjector.init(getIt);
 
@@ -19,12 +19,12 @@ void main() async {
     WidgetTester tester,
     List<StoryEntity>? testState,
   ) async {
-    // Arrange
+    ///Arrange
     final providerOverrides = [
       storiesDataProvider.overrideWith((ref) => testState)
     ];
 
-    // Act
+    ///Act
     await tester.pumpWidget(
       MaterialApp(
         home: ProviderScope(
@@ -37,25 +37,25 @@ void main() async {
 
   group("Test stories screen states", () {
     testWidgets('Loading error test', (tester) async {
-      // Arrange
-      // Act
+      ///Arrange
+      ///Act
       await buildWidgetWithProvider(tester, null);
 
-      // Assert
+      ///Assert
       expect(find.byType(AppLoadingErrorWidget), findsOneWidget);
     });
 
     testWidgets('Empty response state', (tester) async {
-      // Arrange
-      // Act
+      ///Arrange
+      ///Act
       await buildWidgetWithProvider(tester, []);
 
-      // Assert
+      ///Assert
       expect(find.byType(AppEmptyDataWidget), findsOneWidget);
     });
 
     testWidgets('Response with data state', (tester) async {
-      // Act
+      ///Act
       await buildWidgetWithProvider(tester, [
         StoryEntity(
           section: "section",
@@ -68,7 +68,7 @@ void main() async {
         ),
       ]);
 
-      // Assert
+      ///Assert
       expect(find.byType(StoriesList), findsOneWidget);
     });
   });

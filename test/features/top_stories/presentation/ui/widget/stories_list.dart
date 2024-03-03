@@ -17,7 +17,7 @@ class StoriesSearchNotifierMock extends Notifier<String>
     implements StoriesSearchNotifier {}
 
 void main() async {
-  // Arrange
+  ///Arrange
   final GetIt getIt = GetIt.instance;
   await DependencyInjector.init(getIt);
 
@@ -29,7 +29,7 @@ void main() async {
   Future<void> buildWidgetWithProvider(
     WidgetTester tester,
   ) async {
-    // Act
+    ///Act
     await tester.pumpWidget(
       ProviderScope(
         child: MaterialApp(
@@ -55,32 +55,32 @@ void main() async {
 
   group("Test stories list", () {
     testWidgets('test change list view type state', (tester) async {
-      // Arrange
-      // Act
+      ///Arrange
+      ///Act
       await buildWidgetWithProvider(tester);
       final stateContainer =
           ProviderScope.containerOf(tester.element(parentWidget));
       final viewTypeNotifier =
           stateContainer.read(storiesListTypeNotifier.notifier);
 
-      // Act listview
+      ///Act listview
       viewTypeNotifier.state = StoriesViewType.list;
       await tester.pumpAndSettle();
 
-      // Assert listview
+      ///Assert listview
       expect(linearListview, findsOne);
 
-      // Act gridview
+      ///Act gridview
       viewTypeNotifier.state = StoriesViewType.grid;
       await tester.pumpAndSettle();
 
-      // Assert gridview
+      ///Assert gridview
       expect(gridListview, findsOne);
     });
 
     testWidgets('test change search state', (tester) async {
-      // Arrange
-      // Act
+      ///Arrange
+      ///Act
       await buildWidgetWithProvider(tester);
 
       expect(find.byType(StoriesList), findsOne);
@@ -89,31 +89,31 @@ void main() async {
       final searchNotifier =
           stateContainer.read(storiesSearchNotifier.notifier);
 
-      // Act empty search
+      ///Act empty search
       searchNotifier.state = "";
       await tester.pumpAndSettle();
 
-      // Assert empty search
+      ///Assert empty search
       expect(storyItemWidget, findsAtLeast(1));
 
-      // Act empty search
+      ///Act empty search
       searchNotifier.state = "testing search";
       await tester.pumpAndSettle();
 
-      // Assert empty search
+      ///Assert empty search
       expect(storyItemWidget, findsNothing);
     });
 
     testWidgets('test navigation to story details screen', (tester) async {
-      // Arrange
+      ///Arrange
       final storyDetailsScreen = find.byType(StoryDetailsScreen);
 
-      // Act
+      ///Act
       await buildWidgetWithProvider(tester);
       await tester.tap(storyItemWidget.first);
       await tester.pumpAndSettle();
 
-      // Assert
+      ///Assert
       expect(storyDetailsScreen, findsOne);
     });
   });

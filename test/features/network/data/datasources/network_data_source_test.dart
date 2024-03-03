@@ -10,12 +10,12 @@ import 'network_data_source_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<NetworkDataSource>()])
 void main() async {
-  // arrange
+  ///arrange
   final dataSource = MockNetworkDataSource();
 
   group('getRequest', () {
     test('returns an map when completes successfully', () async {
-      // act
+      ///act
       when(
         dataSource.getRequest(
           apiPath: ConstantApiLinks.topStories(StorySection.home),
@@ -27,7 +27,7 @@ void main() async {
             "message": true,
           });
 
-      // assert
+      ///assert
       expect(
           await dataSource.getRequest(
             apiPath: ConstantApiLinks.topStories(StorySection.home),
@@ -37,7 +37,7 @@ void main() async {
     });
 
     test('returns null when completes with error', () async {
-      // act
+      ///act
       when(
         dataSource.getRequest(
           apiPath: ConstantApiLinks.topStories(StorySection.home),
@@ -46,7 +46,7 @@ void main() async {
         ),
       ).thenAnswer((_) async => null);
 
-      // assert
+      ///assert
       expect(
           await dataSource.getRequest(
             apiPath: ConstantApiLinks.topStories(StorySection.home),

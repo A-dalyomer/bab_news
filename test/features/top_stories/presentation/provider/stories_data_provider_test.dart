@@ -11,14 +11,15 @@ void main() async {
   await DependencyInjector.init(getIt);
   group('test StoriesDataProvider', () {
     test('test provider returns null', () async {
-      // Arrange
+      ///Arrange
       late final ProviderContainer container;
-      // Act
+
+      ///Act
       container = createContainer(
         overrides: [storiesDataProvider.overrideWith((ref) => null)],
       );
 
-      // assert
+      ///assert
       expect(
         container.read(storiesDataProvider),
         isA<void>(),

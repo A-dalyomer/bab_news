@@ -7,14 +7,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 
 void main() async {
-  // Arrange
+  ///Arrange
   final GetIt getIt = GetIt.instance;
   await DependencyInjector.init(getIt);
 
   Future<void> buildWidgetWithProvider(
     WidgetTester tester,
   ) async {
-    // Act
+    ///Act
     await tester.pumpWidget(
       const MaterialApp(
         home: ProviderScope(
@@ -27,15 +27,16 @@ void main() async {
   group("Test stories search field states", () {
     testWidgets('Enter search word and check notifier state test',
         (tester) async {
-      // Arrange
+      ///Arrange
       const String testWord = "hi,from tester";
-      // Act
+
+      ///Act
       await buildWidgetWithProvider(tester);
       final element = tester.element(find.byType(StoriesSearchField));
       final container = ProviderScope.containerOf(element);
       await tester.enterText(find.byType(TextField), testWord);
 
-      // Assert
+      ///Assert
       expect(
         container.read(storiesSearchNotifier.notifier).state,
         equals(testWord),

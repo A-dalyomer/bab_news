@@ -8,14 +8,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 
 void main() async {
-  // Arrange
+  ///Arrange
   final GetIt getIt = GetIt.instance;
   await DependencyInjector.init(getIt);
 
   Future<void> buildWidgetWithProvider(
     WidgetTester tester,
   ) async {
-    // Act
+    ///Act
     await tester.pumpWidget(
       const MaterialApp(
         home: ProviderScope(
@@ -27,8 +27,8 @@ void main() async {
 
   group("Test stories list view type buttons", () {
     testWidgets('test tap', (tester) async {
-      // Arrange
-      // Act
+      ///Arrange
+      ///Act
       await buildWidgetWithProvider(tester);
       final listButton = find.byKey(const ValueKey(StoriesViewType.list));
       final gridButton = find.byKey(const ValueKey(StoriesViewType.grid));
@@ -39,17 +39,17 @@ void main() async {
       await tester.tap(listButton);
       await tester.pumpAndSettle();
 
-      // Assert
+      ///Assert
       expect(
         stateContainer.read(storiesListTypeNotifier.notifier).state,
         equals(StoriesViewType.list),
       );
 
-      // Act
+      ///Act
       await tester.tap(gridButton);
       await tester.pumpAndSettle();
 
-      // Assert
+      ///Assert
       expect(
         stateContainer.read(storiesListTypeNotifier.notifier).state,
         equals(StoriesViewType.grid),

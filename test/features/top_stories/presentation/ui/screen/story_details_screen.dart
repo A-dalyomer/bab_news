@@ -10,7 +10,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:get_it/get_it.dart';
 
 void main() async {
-  // Arrange group
+  ///Arrange group
   final GetIt getIt = GetIt.instance;
   await DependencyInjector.init(getIt);
 
@@ -18,12 +18,12 @@ void main() async {
     WidgetTester tester,
     StoryEntity testState,
   ) async {
-    // Arrange
+    ///Arrange
     final providerOverrides = [
       storiesDataProvider.overrideWith((ref) => [testState])
     ];
 
-    // Act
+    ///Act
     await tester.pumpWidget(
       MaterialApp(
         home: ProviderScope(
@@ -36,7 +36,7 @@ void main() async {
 
   group("Test stories details screen", () {
     testWidgets('Build all widgets', (tester) async {
-      // Arrange
+      ///Arrange
       final StoryEntity testStory = StoryEntity(
         section: "section",
         images: const [],
@@ -46,10 +46,11 @@ void main() async {
         publishedDate: DateTime.now(),
         author: "author",
       );
-      // Act
+
+      ///Act
       await buildWidgetWithProvider(tester, testStory);
 
-      // Assert
+      ///Assert
       expect(find.byType(StoriesCarousel), findsOneWidget);
       expect(find.text(testStory.title), findsOneWidget);
       expect(find.text(testStory.abstractDescription), findsOneWidget);
@@ -57,7 +58,7 @@ void main() async {
       expect(find.byType(ReadMoreButton), findsOneWidget);
     });
     testWidgets('Tap read more button', (tester) async {
-      // Arrange
+      ///Arrange
       final StoryEntity testStory = StoryEntity(
         section: "section",
         images: const [],
@@ -67,10 +68,11 @@ void main() async {
         publishedDate: DateTime.now(),
         author: "author",
       );
-      // Act
+
+      ///Act
       await buildWidgetWithProvider(tester, testStory);
 
-      // Assert
+      ///Assert
       buttonTap() async => await tester.tap(find.byType(ReadMoreButton));
       expect(buttonTap, prints("launching url ${testStory.url}\n"));
     });
