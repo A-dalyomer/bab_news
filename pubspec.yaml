@@ -38,7 +38,6 @@ dependencies:
   mockito: ^5.4.4
   equatable: ^2.0.5
   network: ^1.0.0-nullsafety.0
-  image: ^4.1.7
   get_it: ^7.6.7
   dio: ^5.4.1
   flutter_riverpod: ^2.4.10
