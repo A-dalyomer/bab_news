@@ -7,6 +7,7 @@ import 'package:bab_news/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+/// A Use case object holder for the assigned use cases
 class StoriesStateController extends ChangeNotifier {
   StoriesStateController(
     this._navigateDetailsUseCase,

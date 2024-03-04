@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../provider/stories_search_notifier.dart';
 
+/// Textfield widget customized to notify [storiesSearchNotifier] listeners
+/// when its text changes
 class StoriesSearchField extends StatelessWidget {
   const StoriesSearchField({super.key});
 

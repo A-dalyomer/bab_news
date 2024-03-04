@@ -7,6 +7,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../provider/stories_state_controller.dart';
 
+/// Story details screen used to present extended details of a story
+/// addition details such as the author name and the read more button
 class StoryDetailsScreen extends StatelessWidget {
   const StoryDetailsScreen({super.key, required this.story});
   final StoryEntity story;

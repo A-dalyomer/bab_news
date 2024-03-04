@@ -3,6 +3,7 @@ import 'package:bab_news/features/top_stories/presentation/ui/widget/stories_sea
 import 'package:bab_news/features/top_stories/presentation/ui/widget/story_view_type_buttons.dart';
 import 'package:flutter/material.dart';
 
+/// Stories screen app bar that holds its widgets in organized order
 class StoriesAppbar extends StatefulWidget implements PreferredSizeWidget {
   const StoriesAppbar({super.key})
       : preferredSize = const Size.fromHeight(kToolbarHeight);

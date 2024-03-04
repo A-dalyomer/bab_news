@@ -7,6 +7,9 @@ import '../../../../../main.dart';
 import '../../domain/entities/story_entity.dart';
 import '../../domain/use_cases/get_stories_use_case.dart';
 
+/// Stories data provider that handles calling the API request for stories
+/// and returns back the loaded stories list object
+/// Utilizes the riverpod feature for internally handling the loading status
 class StoriesDataProvider {
   StoriesDataProvider(this._getStoriesUseCase);
   final GetStoriesUseCase _getStoriesUseCase;

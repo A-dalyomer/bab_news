@@ -8,6 +8,9 @@ import '../../provider/stories_search_notifier.dart';
 import '../../provider/stories_state_controller.dart';
 import 'story_item.dart';
 
+/// Stories list widget for presenting the [StoryItem]s in the configured
+/// settings
+/// Also listens to related state notifiers to update its state upon changes
 class StoriesList extends StatelessWidget {
   const StoriesList({required this.storiesList, super.key});
   final List<StoryEntity> storiesList;

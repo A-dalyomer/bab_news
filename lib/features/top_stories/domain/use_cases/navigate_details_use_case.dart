@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/dto/navigator_data.dart';
 
+/// Use case for navigating to target screen
 class NavigateDetailsUseCase extends UseCase<void, NavigatorData<StoryEntity>> {
   @override
   void call(NavigatorData params) {

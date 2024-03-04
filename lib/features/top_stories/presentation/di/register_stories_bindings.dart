@@ -8,6 +8,7 @@ import '../../domain/use_cases/launch_url_use_case.dart';
 import '../../domain/use_cases/navigate_details_use_case.dart';
 import '../provider/stories_data_provider.dart';
 
+/// Dependency injector for the top_stories feature
 Future<void> registererStoriesBindings(GetIt getIt) async {
   /// data provider bindings
   getIt.registerSingleton<StoriesDataSource>(StoriesDataSource(getIt()));

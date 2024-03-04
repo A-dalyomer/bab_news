@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Presents the provided author name with its custom UI
 class AuthorName extends StatelessWidget {
   const AuthorName({super.key, required this.name});
   final String name;

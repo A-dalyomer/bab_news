@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 
+/// DTO for holding Stories
 class StoryEntity extends Equatable {
   const StoryEntity({
     required this.section,
@@ -18,6 +19,7 @@ class StoryEntity extends Equatable {
   final String author;
   final DateTime publishedDate;
 
+  /// Equatable implementation for comparing objects by contents
   @override
   List<Object?> get props => [
         images,
@@ -28,6 +30,7 @@ class StoryEntity extends Equatable {
         author,
       ];
 
+  /// Convert current object to Map object
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
     data['images'] = images;

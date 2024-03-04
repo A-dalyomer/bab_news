@@ -5,6 +5,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../../core/widget/type_icon.dart';
 import '../../provider/stories_list_type_notifier.dart';
 
+/// Buttons for managing the [storiesListTypeNotifier] state value
+/// includes two [TypeButton] for changing the current list view type
+/// utilizes the [StoriesViewType] to set the current status
 class StoryViewTypeButton extends StatelessWidget {
   const StoryViewTypeButton({super.key});
 

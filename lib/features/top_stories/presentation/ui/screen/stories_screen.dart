@@ -8,6 +8,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../../core/widget/app_circle_indicator.dart';
 import '../../provider/stories_data_provider.dart';
 
+/// Stories screen handles stories API loading status
 class StoriesScreen extends StatefulWidget {
   const StoriesScreen({super.key});
 

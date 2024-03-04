@@ -5,6 +5,8 @@ import 'package:flutter/foundation.dart';
 
 import '../datasources/stories_data_source.dart';
 
+/// Stories repository implementation
+/// with the overridden implemented functionality
 class StoriesRepositoryImpl extends StoriesRepository {
   StoriesRepositoryImpl(this.dataSource);
   final StoriesDataSource dataSource;

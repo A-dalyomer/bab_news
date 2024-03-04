@@ -5,6 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../../core/utils/enums.dart';
 import '../../provider/stories_section_notifier.dart';
 
+/// Story section filter button
+/// shows a popup menu and changes the selected story section on item chosen
 class StoriesFilterButton extends StatelessWidget {
   const StoriesFilterButton({super.key});
 

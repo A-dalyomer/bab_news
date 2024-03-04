@@ -3,6 +3,7 @@ import 'package:bab_news/core/utils/enums.dart';
 import 'package:bab_news/features/top_stories/domain/entities/story_entity.dart';
 import 'package:bab_news/features/top_stories/domain/repositories/stories_repository.dart';
 
+/// Use case to call the top stories API from the provided [StoriesRepository]
 class GetStoriesUseCase
     extends UseCase<Future<List<StoryEntity>?>, StoriesRepository> {
   GetStoriesUseCase(this.storiesRepository);

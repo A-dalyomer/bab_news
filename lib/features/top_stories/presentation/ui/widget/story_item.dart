@@ -3,6 +3,11 @@ import 'package:bab_news/features/top_stories/domain/entities/story_entity.dart'
 import 'package:bab_news/features/top_stories/presentation/ui/widget/stories_carousel.dart';
 import 'package:flutter/material.dart';
 
+/// Widget to present the story details in short
+/// Main widgets include the [StoriesCarousel]
+/// and Text widgets for title and description
+/// Changes children order depending on the available space
+/// is pressable calling the [onTap] function
 class StoryItem extends StatelessWidget {
   const StoryItem({
     required this.story,

@@ -11,6 +11,7 @@ class StoryModel extends StoryEntity {
     required super.publishedDate,
   });
 
+  /// Parse top stories response to a [StoryEntity] object
   factory StoryModel.fromJson(Map<String, dynamic> json) {
     return StoryModel(
       section: json['section'],
@@ -23,9 +24,7 @@ class StoryModel extends StoryEntity {
       /// some cases having the url value "null" value or empty
       url: json['url'].toString() == "null" ? '' : json['url'],
       author: json['byline'],
-      publishedDate: DateTime.parse(
-        json['published_date'],
-      ),
+      publishedDate: DateTime.parse(json['published_date']),
     );
   }
 }

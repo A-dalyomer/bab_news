@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/widget/app_cached_image.dart';
 
+/// Carousel slider with customized goal to present the provided story images
+/// that can be customized depending on where it is used
+/// with nice UI and small animations
 class StoriesCarousel extends StatelessWidget {
   const StoriesCarousel({
     super.key,
